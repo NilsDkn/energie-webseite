@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kostenloser Energievergleich & Anbieterwechsel für Strom und Gas – Nils Diekena." />
+  <title>Nils Diekena | Energievergleiche</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Kopfbereich -->
+  <header>
+    <h1>Energie sparen mit Nils Diekena</h1>
+    <nav>
+      <ul>
+        <li><a href="#start">Start</a></li>
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#services">Angebot</a></li>
+        <li><a href="#rechner">Rechner</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hauptinhalt -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="start">
+      <div class="container">
+        <h2>Günstigerer Energievertrag – <span>kostenloser Wechselservice</span></h2>
+        <p>Ich vergleiche für dich Strom & Gas und kümmere mich um den gesamten Wechsel. Transparent, persönlich, kostenlos.</p>
+        <div class="cta">
+          <a class="btn" href="#rechner">Jetzt Ersparnis prüfen</a>
+          <a class="btn btn-outline" href="https://wa.me/491736328893" target="_blank" rel="noopener">WhatsApp schreiben</a>
+        </div>
+        <div class="badges">
+          <span class="badge">0 € Service</span>
+          <span class="badge">Schnell & unkompliziert</span>
+          <span class="badge">Strom & Gas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Über mich -->
+    <section id="about">
+      <div class="container">
+        <h2>Über mich</h2>
+        <p>Mein Name ist <strong>Nils Diekena</strong>. Ich helfe Privatpersonen und Unternehmen dabei,
+        ihre Energiekosten zu senken. Dafür vergleiche ich verschiedene Anbieter und finde
+        die günstigsten Tarife – schnell, unkompliziert und völlig kostenlos.</p>
+        <p>Mir ist wichtig, dass du nicht mehr zahlst, als nötig ist. Der Wechsel zu einem
+        neuen Anbieter ist für dich ganz einfach, denn ich kümmere mich um den gesamten Ablauf.</p>
+      </div>
+    </section>
+
+    <!-- Angebot -->
+    <section id="services">
+      <div class="container">
+        <h2>Mein Angebot</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Kostenloser Vergleich</h3>
+            <p>Ich prüfe aktuelle Strom- & Gastarife und finde das beste Angebot für dich.</p>
+          </article>
+          <article class="card">
+            <h3>Kompletter Wechselservice</h3>
+            <p>Ich übernehme die Abwicklung – du musst dich um nichts kümmern.</p>
+          </article>
+          <article class="card">
+            <h3>Transparente Beratung</h3>
+            <p>Klare Infos zu Preisen, Laufzeiten & Kündigungsfristen – ohne Kleingedrucktes.</p>
+          </article>
+        </div>
+
+        <!-- Ablauf -->
+        <section id="ablauf">
+          <h2>So läuft’s ab</h2>
+          <div class="steps">
+            <div class="step">
+              <h4>Kontakt</h4>
+              <p>Du schickst mir kurz deinen aktuellen Tarif (Preis & Verbrauch) – per Mail, Telefon oder WhatsApp.</p>
+            </div>
+            <div class="step">
+              <h4>Vergleich</h4>
+              <p>Ich prüfe passende Tarife und berechne deine mögliche Ersparnis – kostenlos.</p>
+            </div>
+            <div class="step">
+              <h4>Wechsel</h4>
+              <p>Ich erledige die Formalitäten & den Anbieterwechsel – du lehnst dich zurück.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Vergleichsrechner -->
+    <section id="rechner">
+      <div class="container">
+        <h2>Vergleichsrechner</h2>
+        <p>Wähle <strong>Strom</strong> oder <strong>Gas</strong>. Der Rechner vergleicht deinen aktuellen Tarif mit meinem festen Angebot.</p>
+
+        <form id="calcForm" onsubmit="event.preventDefault(); berechneKosten();">
+          <div class="grid">
+            <!-- Wahl: Strom / Gas -->
+            <div class="field">
+              <label for="energieart">Energieart</label>
+              <select id="energieart" aria-label="Energieart">
+                <option value="strom" selected>Strom</option>
+                <option value="gas">Gas</option>
+              </select>
+            </div>
+
+            <!-- Verbrauch -->
+            <div class="field">
+              <label for="verbrauch">Jahresverbrauch (kWh)</label>
+              <input id="verbrauch" type="number" min="0" step="1" placeholder="z. B. 3000" />
+            </div>
+
+            <!-- Aktuelle Preise -->
+            <div class="field">
+              <label for="altPreis">Aktueller Arbeitspreis (ct/kWh)</label>
+              <input id="altPreis" type="number" min="0" step="0.001" placeholder="z. B. 35.5" />
+            </div>
+
+            <div class="field">
+              <label for="altGrundpreis">Aktueller Grundpreis (€/Jahr)</label>
+              <input id="altGrundpreis" type="number" min="0" step="0.01" placeholder="z. B. 120" value="0" />
+            </div>
+
+            <!-- Fester neuer Preis (readonly) -->
+            <div class="field">
+              <label for="neuPreis">Neuer Arbeitspreis (ct/kWh) – fest</label>
+              <input id="neuPreis" type="number" min="0" step="0.01" value="23.54" readonly />
+            </div>
+
+            <div class="field">
+              <label for="neuGrundpreis">Neuer Grundpreis (€/Jahr) – fest</label>
+              <input id="neuGrundpreis" type="number" min="0" step="0.01" value="210.00" readonly />
+            </div>
+          </div>
+
+          <button type="submit" class="btn">Kosten berechnen</button>
+        </form>
+
+        <div id="ergebnis" class="card" aria-live="polite" style="display:none;">
+          <h3>Ergebnis</h3>
+          <p><strong>Aktuelle Jahreskosten:</strong> <span id="altKosten">–</span></p>
+          <p><strong>Neue Jahreskosten (<span id="ergebnisArt">Strom</span>):</strong> <span id="neuKosten">–</span></p>
+          <p><strong>Ersparnis:</strong> <span id="ersparnis">–</span></p>
+          <p class="hint">Hinweis: Die Berechnung ist eine Näherung und ersetzt keinen individuellen Tarifvergleich.</p>
+          <a class="btn-secondary" href="#contact">Jetzt kostenlosen Vergleich anfragen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <h2>Häufige Fragen</h2>
+        <details class="faq">
+          <summary>Kostet mich das wirklich nichts?</summary>
+          <p>Ja. Mein Service ist für dich kostenlos. Ich finanziere mich über Partnervergütungen – für dich bleibt der Preis gleich.</p>
+        </details>
+        <details class="faq">
+          <summary>Kann ich jederzeit wieder wechseln?</summary>
+          <p>Ja. Ich achte auf faire Laufzeiten & Kündigungsfristen und erinnere dich bei Wunsch an den nächsten Vergleich.</p>
+        </details>
+        <details class="faq">
+          <summary>Was brauche ich für den Vergleich?</summary>
+          <p>Verbrauch (kWh/Jahr) und deine aktuellen Preise (Arbeitspreis & Grundpreis). Optional eine letzte Rechnung.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="contact">
+      <div class="container">
+        <h2>Kontakt</h2>
+        <p>Hast du Fragen oder möchtest du gleich einen Energievergleich starten?</p>
+        <ul>
+          <li>📧 E-Mail: <a href="mailto:nils.diekena@energiehuus.de">nils.diekena@energiehuus.de</a></li>
+          <li>📱 Telefon/WhatsApp: <a href="tel:+491736328893">+49 173 6328893</a> · <a href="https://wa.me/491736328893" target="_blank" rel="noopener">WhatsApp öffnen</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fußbereich -->
+  <footer>
+    <p>&copy; 2025 Nils Diekena · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+  </footer>
+
+  <!-- Script für den Rechner -->
+  <script>
+    const TARIFFE = {
+      strom: { gp: 210.00, ap: 23.54 },   // Grundpreis €/Jahr, Arbeitspreis ct/kWh
+      gas:   { gp: 214.80, ap: 8.70 }     // Grundpreis €/Jahr, Arbeitspreis ct/kWh
+    };
+
+    function euro(n){ 
+      return n.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+    }
+    function parseNum(id){
+      const raw = document.getElementById(id).value;
+      if (raw === '') return NaN;
+      const v = parseFloat(String(raw).replace(',', '.'));
+      return isNaN(v) ? NaN : v;
+    }
+    function setTarif(art){
+      const { gp, ap } = TARIFFE[art];
+      document.getElementById('neuGrundpreis').value = gp.toFixed(2); // mit Punkt für number-Inputs
+      document.getElementById('neuPreis').value = ap.toFixed(2);
+      document.getElementById('ergebnisArt').textContent = art === 'strom' ? 'Strom' : 'Gas';
+    }
+    function berechneKosten(){
+      const art   = document.getElementById('energieart').value;
+      setTarif(art);
+
+      const kWh   = parseNum('verbrauch');
+      const altCt = parseNum('altPreis');
+      const altGP = parseNum('altGrundpreis');
+      const neuCt = parseNum('neuPreis');         // fest je nach Auswahl
+      const neuGP = parseNum('neuGrundpreis');    // fest je nach Auswahl
+
+      if ([kWh, altCt, altGP, neuCt, neuGP].some(v => isNaN(v)) || kWh <= 0 || altCt < 0 || altGP < 0){
+        alert('Bitte gültige Werte eingeben.');
+        return;
+      }
+
+      const altKosten = (kWh * (altCt/100)) + altGP;
+      const neuKosten = (kWh * (neuCt/100)) + neuGP;
+      const ersparnis = altKosten - neuKosten;
+
+      document.getElementById('altKosten').textContent = euro(altKosten);
+      document.getElementById('neuKosten').textContent = euro(neuKosten);
+      document.getElementById('ersparnis').textContent = 
+        (ersparnis >= 0 ? '− ' : '+ ') + euro(Math.abs(ersparnis));
+
+      const box = document.getElementById('ergebnis');
+      box.style.display = 'block';
+      box.classList.remove('neg','pos');
+      box.classList.add(ersparnis >= 0 ? 'pos' : 'neg');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setTarif('strom'); // Initial
+      document.getElementById('energieart').addEventListener('change', (e) => setTarif(e.target.value));
+    });
+  </script>
+</body>
+</html>

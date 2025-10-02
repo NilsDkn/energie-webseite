@@ -1,0 +1,217 @@
+/* ===========================
+   Basis / Theme
+   =========================== */
+:root {
+  --brand: #0066cc;   /* Blau: Vertrauen */
+  --accent: #00b894;  /* Grün: Energie */
+  --dark: #1f2937;
+  --muted: #f5f7fa;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  background: var(--muted);
+  color: #333;
+}
+
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+section { padding: 40px 0; scroll-margin-top: 100px; } /* Anker springen nicht unter Header */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ===========================
+   Header / Navigation
+   =========================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+header h1 { margin: 0; font-size: 1.8rem; }
+nav ul { list-style: none; padding: 0; margin: 10px 0 0; }
+nav ul li { display: inline-block; margin: 0 14px; }
+nav ul li a { color: #fff; font-weight: bold; text-decoration: none; }
+nav ul li a:hover { color: #ffeaa7; }
+
+/* ===========================
+   Typografie / Überschriften
+   =========================== */
+main h2 { color: var(--brand); margin: 0 0 10px; }
+h3 { color: var(--brand); margin-top: 0; }
+
+/* ===========================
+   Hero
+   =========================== */
+.hero {
+  background: linear-gradient(135deg, rgba(0,102,204,.08), rgba(0,184,148,.08));
+  text-align: center;
+  padding: 48px 0;
+}
+.hero h2 { margin: 0 0 8px; font-size: 1.8rem; color: var(--dark); }
+.hero h2 span { color: var(--brand); }
+.hero p { max-width: 720px; margin: 0 auto; }
+.hero .cta {
+  margin-top: 16px;
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+.badges {
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 12px;
+}
+.badge {
+  background: #eef2f7;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: .9rem;
+}
+
+/* ===========================
+   Cards (Angebot)
+   =========================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  padding: 16px;
+}
+
+/* ===========================
+   Steps („So läuft’s ab“)
+   =========================== */
+.steps { counter-reset: step; display: grid; gap: 12px; margin-top: 12px; }
+.step {
+  background: #fff;
+  border-left: 4px solid var(--accent);
+  padding: 12px;
+  border-radius: 8px;
+}
+.step h4 { margin: 0 0 6px; }
+.step h4::before {
+  counter-increment: step;
+  content: counter(step) ". ";
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ===========================
+   FAQ
+   =========================== */
+details.faq {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+details.faq + details.faq { margin-top: 8px; }
+details.faq summary { font-weight: 600; cursor: pointer; }
+
+/* ===========================
+   Buttons
+   =========================== */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 700;
+  transition: transform .05s ease-in, opacity .2s ease;
+}
+.btn:hover { opacity: .9; text-decoration: none; }
+.btn:active { transform: translateY(1px); }
+
+.btn-secondary {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+.btn-secondary:hover { opacity: .9; text-decoration: none; }
+
+.btn-outline {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 2px solid var(--brand);
+  background: transparent;
+  color: var(--brand);
+  font-weight: 700;
+}
+.btn-outline:hover { background: var(--brand); color: #fff; text-decoration: none; }
+
+/* ===========================
+   Rechner-Formular
+   =========================== */
+#rechner .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+#rechner .field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+#rechner .field input,
+#rechner .field select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfd8dc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+}
+
+#ergebnis { margin-top: 18px; }
+#ergebnis .hint { font-size: .9rem; color: #555; }
+#ergebnis.pos { border-left: 6px solid var(--accent); }
+#ergebnis.neg { border-left: 6px solid #cc3b3b; }
+
+/* ===========================
+   Footer
+   =========================== */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #333;
+  color: #fff;
+  margin-top: 30px;
+  font-size: .95rem;
+}
+footer a { color: #fff; text-decoration: underline; }
+footer a:hover { opacity: .9; }
+
+/* ===========================
+   Kleinigkeiten / Accessability
+   =========================== */
+:focus-visible { outline: 2px dashed var(--brand); outline-offset: 2px; }
+img { max-width: 100%; height: auto; display: block; }
+ul { margin: 0; padding-left: 20px; }
